@@ -45,13 +45,13 @@ let π:CGFloat = CGFloat(M_PI)
         let outlineEndAngleBig = arcLengthPerGlassBig * CGFloat(counter) + startAngle
         
         let outlinePathBig = UIBezierPath(arcCenter: centerBig,
-                                          radius: bounds.width - 7.5,
+                                          radius: bounds.width/2 - 7.5,
                                           startAngle: startAngle,
                                           endAngle: outlineEndAngleBig,
                                           clockwise: true)
         
         outlineColor.setStroke()
-        outlinePathBig.lineWidth = 15.0
+        outlinePathBig.lineWidth = 45.0
         outlinePathBig.stroke()
     }
 }

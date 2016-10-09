@@ -17,38 +17,53 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SNn-md-UPW">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SNn-md-UPW">
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="SNn-md-UPW" secondAttribute="height" multiplier="1:1" id="Y4g-OZ-IqA"/>
                                 </constraints>
-                                <state key="normal" title="Вмешочек"/>
+                                <state key="normal" title="Вмешочек" image="egg"/>
+                                <connections>
+                                    <action selector="middleButnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="VP9-Q2-hHG"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AME-AB-jjf">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AME-AB-jjf">
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="AME-AB-jjf" secondAttribute="height" multiplier="1:1" id="1Mz-X2-lK1"/>
                                 </constraints>
-                                <state key="normal" title="Вкрутую"/>
+                                <state key="normal" title="Вкрутую" image="egg"/>
+                                <connections>
+                                    <action selector="lastBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MZd-7a-5Kh"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jtz-0y-79x">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jtz-0y-79x">
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Jtz-0y-79x" secondAttribute="height" multiplier="1:1" id="TeB-Re-pUG"/>
                                 </constraints>
-                                <state key="normal" title="Всмятку"/>
+                                <state key="normal" title="Всмятку" image="egg"/>
+                                <connections>
+                                    <action selector="firstBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="AyY-b5-LQl"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="742-0J-f9E">
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="742-0J-f9E" secondAttribute="height" multiplier="1:1" id="coh-xg-oAE"/>
                                 </constraints>
                                 <state key="normal" image="play"/>
+                                <connections>
+                                    <action selector="startBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XJA-sw-CUp"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KIu-QI-ohC">
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="KIu-QI-ohC" secondAttribute="height" multiplier="1:1" id="d3q-YE-4DG"/>
                                 </constraints>
                                 <state key="normal" title="Button" image="restart"/>
+                                <connections>
+                                    <action selector="restartBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Gjz-yk-eg3"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UVJ-Bk-mWq">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -58,9 +73,9 @@
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bMD-od-8ie" customClass="RoundTimer" customModule="egg_timer" customModuleProvider="target">
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oNc-Zc-KhR">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oNc-Zc-KhR">
                                         <frame key="frameInset" minX="60" minY="88" width="100" height="43"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -76,7 +91,7 @@
                                         <color key="value" red="1" green="0.92549019610000005" blue="0.4823529412" alpha="1" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="outlineColor">
-                                        <color key="value" red="1" green="0.64705882349999999" blue="0.7725490196" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="value" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
@@ -106,6 +121,15 @@
                             <constraint firstItem="SNn-md-UPW" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="101:667" id="sPy-2t-CsF"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="counterView" destination="bMD-od-8ie" id="dhP-kw-EP9"/>
+                        <outlet property="firstButton" destination="Jtz-0y-79x" id="Qyg-5H-dX1"/>
+                        <outlet property="lastButton" destination="AME-AB-jjf" id="HNp-gi-8IZ"/>
+                        <outlet property="middleButton" destination="SNn-md-UPW" id="mbj-wa-v1d"/>
+                        <outlet property="restartBtn" destination="KIu-QI-ohC" id="Tp6-DZ-8Xl"/>
+                        <outlet property="startBtn" destination="742-0J-f9E" id="oY4-iz-vRG"/>
+                        <outlet property="timerLbl" destination="oNc-Zc-KhR" id="BOR-lu-FS0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -113,6 +137,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="egg" width="256" height="256"/>
         <image name="play" width="128" height="128"/>
         <image name="restart" width="128" height="128"/>
     </resources>

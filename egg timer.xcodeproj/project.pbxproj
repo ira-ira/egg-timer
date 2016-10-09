@@ -10,10 +10,10 @@
 		D3545D081DAA22D60000AAE7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3545D071DAA22D60000AAE7 /* AppDelegate.swift */; };
 		D3545D0A1DAA22D60000AAE7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3545D091DAA22D60000AAE7 /* ViewController.swift */; };
 		D3545D0D1DAA22D60000AAE7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3545D0B1DAA22D60000AAE7 /* Main.storyboard */; };
-		D3545D101DAA22D60000AAE7 /* egg_timer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D3545D0E1DAA22D60000AAE7 /* egg_timer.xcdatamodeld */; };
 		D3545D121DAA22D60000AAE7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3545D111DAA22D60000AAE7 /* Assets.xcassets */; };
 		D3545D151DAA22D60000AAE7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3545D131DAA22D60000AAE7 /* LaunchScreen.storyboard */; };
 		D3545D1F1DAA26FB0000AAE7 /* RoundTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3545D1E1DAA26FB0000AAE7 /* RoundTimer.swift */; };
+		D3545D231DAA5BA00000AAE7 /* 04B_19__.TTF in Resources */ = {isa = PBXBuildFile; fileRef = D3545D221DAA54190000AAE7 /* 04B_19__.TTF */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,13 +21,13 @@
 		D3545D071DAA22D60000AAE7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D3545D091DAA22D60000AAE7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D3545D0C1DAA22D60000AAE7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		D3545D0F1DAA22D60000AAE7 /* egg_timer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = egg_timer.xcdatamodel; sourceTree = "<group>"; };
 		D3545D111DAA22D60000AAE7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D3545D141DAA22D60000AAE7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D3545D161DAA22D60000AAE7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D3545D1C1DAA266B0000AAE7 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
 		D3545D1D1DAA266B0000AAE7 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		D3545D1E1DAA26FB0000AAE7 /* RoundTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundTimer.swift; sourceTree = "<group>"; };
+		D3545D221DAA54190000AAE7 /* 04B_19__.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; name = 04B_19__.TTF; path = ../04B_19__.TTF; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,13 +60,13 @@
 		D3545D061DAA22D60000AAE7 /* egg timer */ = {
 			isa = PBXGroup;
 			children = (
+				D3545D221DAA54190000AAE7 /* 04B_19__.TTF */,
 				D3545D071DAA22D60000AAE7 /* AppDelegate.swift */,
 				D3545D091DAA22D60000AAE7 /* ViewController.swift */,
 				D3545D0B1DAA22D60000AAE7 /* Main.storyboard */,
 				D3545D111DAA22D60000AAE7 /* Assets.xcassets */,
 				D3545D131DAA22D60000AAE7 /* LaunchScreen.storyboard */,
 				D3545D161DAA22D60000AAE7 /* Info.plist */,
-				D3545D0E1DAA22D60000AAE7 /* egg_timer.xcdatamodeld */,
 				D3545D1E1DAA26FB0000AAE7 /* RoundTimer.swift */,
 			);
 			path = "egg timer";
@@ -131,6 +131,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D3545D151DAA22D60000AAE7 /* LaunchScreen.storyboard in Resources */,
+				D3545D231DAA5BA00000AAE7 /* 04B_19__.TTF in Resources */,
 				D3545D121DAA22D60000AAE7 /* Assets.xcassets in Resources */,
 				D3545D0D1DAA22D60000AAE7 /* Main.storyboard in Resources */,
 			);
@@ -146,7 +147,6 @@
 				D3545D1F1DAA26FB0000AAE7 /* RoundTimer.swift in Sources */,
 				D3545D0A1DAA22D60000AAE7 /* ViewController.swift in Sources */,
 				D3545D081DAA22D60000AAE7 /* AppDelegate.swift in Sources */,
-				D3545D101DAA22D60000AAE7 /* egg_timer.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -314,21 +314,9 @@
 				D3545D1B1DAA22D60000AAE7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		D3545D0E1DAA22D60000AAE7 /* egg_timer.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				D3545D0F1DAA22D60000AAE7 /* egg_timer.xcdatamodel */,
-			);
-			currentVersion = D3545D0F1DAA22D60000AAE7 /* egg_timer.xcdatamodel */;
-			path = egg_timer.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = D3545CFC1DAA22D60000AAE7 /* Project object */;
 }
