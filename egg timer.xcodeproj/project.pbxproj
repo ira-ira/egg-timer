@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D304428D1DBD014700E4887B /* SegmentControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = D304428C1DBD014700E4887B /* SegmentControl.swift */; };
+		D304428F1DBD144F00E4887B /* modalAdvice.swift in Sources */ = {isa = PBXBuildFile; fileRef = D304428E1DBD144F00E4887B /* modalAdvice.swift */; };
 		D3545D081DAA22D60000AAE7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3545D071DAA22D60000AAE7 /* AppDelegate.swift */; };
 		D3545D0A1DAA22D60000AAE7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3545D091DAA22D60000AAE7 /* ViewController.swift */; };
 		D3545D0D1DAA22D60000AAE7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3545D0B1DAA22D60000AAE7 /* Main.storyboard */; };
@@ -18,6 +20,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D304428C1DBD014700E4887B /* SegmentControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SegmentControl.swift; path = ../SegmentControl.swift; sourceTree = "<group>"; };
+		D304428E1DBD144F00E4887B /* modalAdvice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = modalAdvice.swift; sourceTree = "<group>"; };
 		D3545D041DAA22D60000AAE7 /* egg timer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "egg timer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3545D071DAA22D60000AAE7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D3545D091DAA22D60000AAE7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -63,9 +67,11 @@
 		D3545D061DAA22D60000AAE7 /* egg timer */ = {
 			isa = PBXGroup;
 			children = (
+				D304428C1DBD014700E4887B /* SegmentControl.swift */,
 				D3545D221DAA54190000AAE7 /* 04B_19__.TTF */,
 				D3545D071DAA22D60000AAE7 /* AppDelegate.swift */,
 				D3545D091DAA22D60000AAE7 /* ViewController.swift */,
+				D304428E1DBD144F00E4887B /* modalAdvice.swift */,
 				D3545D0B1DAA22D60000AAE7 /* Main.storyboard */,
 				D3545D111DAA22D60000AAE7 /* Assets.xcassets */,
 				D3545D131DAA22D60000AAE7 /* LaunchScreen.storyboard */,
@@ -160,6 +166,8 @@
 				D3545D1F1DAA26FB0000AAE7 /* RoundTimer.swift in Sources */,
 				D3545D0A1DAA22D60000AAE7 /* ViewController.swift in Sources */,
 				D3545D081DAA22D60000AAE7 /* AppDelegate.swift in Sources */,
+				D304428F1DBD144F00E4887B /* modalAdvice.swift in Sources */,
+				D304428D1DBD014700E4887B /* SegmentControl.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -228,7 +236,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -273,7 +281,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
