@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -20,33 +20,31 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SNn-md-UPW">
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="SNn-md-UPW" secondAttribute="height" multiplier="1:1" id="Y4g-OZ-IqA"/>
-                                </constraints>
-                                <state key="normal" title="Вмешочек" image="egg"/>
-                                <connections>
-                                    <action selector="middleButnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="VP9-Q2-hHG"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AME-AB-jjf">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="back" translatesAutoresizingMaskIntoConstraints="NO" id="RjC-rF-thb"/>
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AME-AB-jjf">
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="AME-AB-jjf" secondAttribute="height" multiplier="1:1" id="1Mz-X2-lK1"/>
                                 </constraints>
-                                <state key="normal" title="Вкрутую" image="egg"/>
+                                <state key="normal" title="Вкрутую" image="egg3"/>
                                 <connections>
                                     <action selector="lastBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MZd-7a-5Kh"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jtz-0y-79x">
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jtz-0y-79x">
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Jtz-0y-79x" secondAttribute="height" multiplier="1:1" id="TeB-Re-pUG"/>
                                 </constraints>
-                                <state key="normal" title="Всмятку" image="egg"/>
+                                <state key="normal" image="egg1"/>
                                 <connections>
                                     <action selector="firstBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="AyY-b5-LQl"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="btnBack" translatesAutoresizingMaskIntoConstraints="NO" id="8jM-cj-8cl">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="219" id="Bos-UW-HlE"/>
+                                    <constraint firstAttribute="height" constant="96" id="uaG-cX-1ff"/>
+                                </constraints>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="742-0J-f9E">
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="742-0J-f9E" secondAttribute="height" multiplier="1:1" id="coh-xg-oAE"/>
@@ -66,9 +64,8 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UVJ-Bk-mWq">
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="UVJ-Bk-mWq" secondAttribute="height" multiplier="23:35" id="yli-oK-gCs"/>
+                                    <constraint firstAttribute="width" secondItem="UVJ-Bk-mWq" secondAttribute="height" multiplier="23:35" constant="-2.1000000000000014" id="yli-oK-gCs"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bMD-od-8ie" customClass="RoundTimer" customModule="egg_timer" customModuleProvider="target">
@@ -88,37 +85,78 @@
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="counterColor">
-                                        <color key="value" red="1" green="0.92549019610000005" blue="0.4823529412" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="value" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="outlineColor">
-                                        <color key="value" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        <color key="value" red="0.89803921568627454" green="0.10980392156862745" blue="0.5607843137254902" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="counterColor2">
+                                        <color key="value" red="1" green="0.95294117647058818" blue="0.2627450980392157" alpha="1" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SNn-md-UPW">
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="SNn-md-UPW" secondAttribute="height" multiplier="1:1" id="Y4g-OZ-IqA"/>
+                                </constraints>
+                                <state key="normal" title="Вмешочек" image="egg2"/>
+                                <connections>
+                                    <action selector="middleButnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="VP9-Q2-hHG"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Всмятку" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hjw-M8-pDB">
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="13"/>
+                                <color key="textColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="В мешочек" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6KE-ee-lc8">
+                                <frame key="frameInset" minX="126" minY="161" width="68" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="13"/>
+                                <color key="textColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="В крутую" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6jY-vv-cEM">
+                                <frame key="frameInset" minX="236" minY="161" width="68" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="13"/>
+                                <color key="textColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="AME-AB-jjf" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="53" id="4mI-Pt-wKB"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="KIu-QI-ohC" secondAttribute="bottom" constant="32" id="8sF-Mu-cJu"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="AME-AB-jjf" secondAttribute="trailing" constant="12" id="9BO-cG-9nA"/>
-                            <constraint firstItem="UVJ-Bk-mWq" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="2:29" id="D1F-sV-6Ib"/>
+                            <constraint firstItem="8jM-cj-8cl" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="3fV-Jx-jSp"/>
+                            <constraint firstItem="AME-AB-jjf" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="65" id="4mI-Pt-wKB"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="KIu-QI-ohC" secondAttribute="bottom" constant="42" id="8sF-Mu-cJu"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="AME-AB-jjf" secondAttribute="trailing" id="9BO-cG-9nA"/>
+                            <constraint firstItem="RjC-rF-thb" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="AYN-Za-4wS"/>
+                            <constraint firstItem="RjC-rF-thb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="B2R-Id-XNg"/>
+                            <constraint firstItem="UVJ-Bk-mWq" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="2:29" constant="-2.1724137931034448" id="D1F-sV-6Ib"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="8jM-cj-8cl" secondAttribute="bottom" constant="20" id="EJw-MQ-B8f"/>
                             <constraint firstItem="bMD-od-8ie" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="257:667" id="ETU-Ml-rpf"/>
-                            <constraint firstItem="SNn-md-UPW" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="53" id="Ftf-2G-rx8"/>
-                            <constraint firstItem="AME-AB-jjf" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="101:667" id="Jfr-qP-gGX"/>
-                            <constraint firstItem="Jtz-0y-79x" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="53" id="JrG-C2-KxR"/>
-                            <constraint firstItem="Jtz-0y-79x" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="12" id="MuT-Fx-OA3"/>
+                            <constraint firstItem="hjw-M8-pDB" firstAttribute="top" secondItem="Jtz-0y-79x" secondAttribute="bottom" constant="8" symbolic="YES" id="Exy-d8-Yem"/>
+                            <constraint firstItem="SNn-md-UPW" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="66" id="Ftf-2G-rx8"/>
+                            <constraint firstItem="AME-AB-jjf" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="101:667" constant="-18.008995502248865" id="Jfr-qP-gGX"/>
+                            <constraint firstItem="Jtz-0y-79x" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="66" id="JrG-C2-KxR"/>
+                            <constraint firstItem="RjC-rF-thb" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="KSh-bi-xak"/>
+                            <constraint firstItem="Jtz-0y-79x" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="MuT-Fx-OA3"/>
                             <constraint firstItem="742-0J-f9E" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="60:667" id="O6e-0A-NyY"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="UVJ-Bk-mWq" secondAttribute="bottom" constant="32" id="Qw9-kV-HtH"/>
-                            <constraint firstItem="UVJ-Bk-mWq" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Sg9-OC-SKi"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="UVJ-Bk-mWq" secondAttribute="bottom" constant="42" id="Qw9-kV-HtH"/>
+                            <constraint firstItem="UVJ-Bk-mWq" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="-1" id="Sg9-OC-SKi"/>
                             <constraint firstItem="bMD-od-8ie" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="XdL-kI-l2T"/>
-                            <constraint firstItem="KIu-QI-ohC" firstAttribute="leading" secondItem="UVJ-Bk-mWq" secondAttribute="trailing" constant="-0.5" id="Xdt-xN-Lde"/>
+                            <constraint firstItem="KIu-QI-ohC" firstAttribute="leading" secondItem="UVJ-Bk-mWq" secondAttribute="trailing" constant="1.5" id="Xdt-xN-Lde"/>
                             <constraint firstItem="KIu-QI-ohC" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="60:667" id="c8o-Lc-Tks"/>
-                            <constraint firstItem="Jtz-0y-79x" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="101:667" id="jln-Yq-nBo"/>
+                            <constraint firstItem="hjw-M8-pDB" firstAttribute="trailing" secondItem="Jtz-0y-79x" secondAttribute="trailing" id="cQJ-ck-YSF"/>
+                            <constraint firstItem="hjw-M8-pDB" firstAttribute="leading" secondItem="Jtz-0y-79x" secondAttribute="leading" id="fQz-bM-f6a"/>
+                            <constraint firstItem="Jtz-0y-79x" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="101:667" constant="-18.008995502248865" id="jln-Yq-nBo"/>
                             <constraint firstItem="UVJ-Bk-mWq" firstAttribute="leading" secondItem="742-0J-f9E" secondAttribute="trailing" constant="0.5" id="mVi-56-0fK"/>
                             <constraint firstItem="SNn-md-UPW" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="mgF-sa-de0"/>
                             <constraint firstItem="UVJ-Bk-mWq" firstAttribute="top" secondItem="bMD-od-8ie" secondAttribute="bottom" constant="47" id="n2C-n9-DyD"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="742-0J-f9E" secondAttribute="bottom" constant="32" id="nzN-rR-cAz"/>
-                            <constraint firstItem="SNn-md-UPW" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="101:667" id="sPy-2t-CsF"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="742-0J-f9E" secondAttribute="bottom" constant="42" id="nzN-rR-cAz"/>
+                            <constraint firstItem="bMD-od-8ie" firstAttribute="top" secondItem="hjw-M8-pDB" secondAttribute="bottom" constant="18" id="qw6-jy-OmW"/>
+                            <constraint firstItem="SNn-md-UPW" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="101:667" constant="-18.008995502248865" id="sPy-2t-CsF"/>
+                            <constraint firstItem="RjC-rF-thb" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" id="tf9-pR-UrY"/>
                         </constraints>
                     </view>
                     <connections>
@@ -133,12 +171,16 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="136.80000000000001" y="135.38230884557723"/>
+            <point key="canvasLocation" x="135" y="135.21126760563379"/>
         </scene>
     </scenes>
     <resources>
-        <image name="egg" width="256" height="256"/>
-        <image name="play" width="128" height="128"/>
-        <image name="restart" width="128" height="128"/>
+        <image name="back" width="506" height="869"/>
+        <image name="btnBack" width="456" height="199"/>
+        <image name="egg1" width="117" height="117"/>
+        <image name="egg2" width="117" height="117"/>
+        <image name="egg3" width="117" height="117"/>
+        <image name="play" width="122" height="122"/>
+        <image name="restart" width="61" height="61"/>
     </resources>
 </document>

@@ -14,6 +14,7 @@ let π:CGFloat = CGFloat(M_PI)
 @IBDesignable class RoundTimer : UIView{
     
     @IBInspectable var counterColor: UIColor = UIColor.blue
+     @IBInspectable var counterColor2: UIColor = UIColor.blue
     @IBInspectable var outlineColor: UIColor = UIColor.blue
     var arcWidth: CGFloat = 27.0
     var maxValue:Int = 10
@@ -31,8 +32,15 @@ let π:CGFloat = CGFloat(M_PI)
         let circlePath = UIBezierPath(ovalIn: CGRect(x: 3.75,  y: 3.75, width: bounds.width-7.5, height: bounds.width-7.5))
         
         counterColor.setFill()
-        
         circlePath.fill()
+        
+       
+        let circlePath2 = UIBezierPath(ovalIn: CGRect(x: 25,  y:25, width: bounds.width-50, height: bounds.width-50))
+        
+        counterColor2.setFill()
+        circlePath2.fill()
+        
+        
         
         let startAngle: CGFloat = π / 2
         let endAngle: CGFloat = π / 2
@@ -45,13 +53,13 @@ let π:CGFloat = CGFloat(M_PI)
         let outlineEndAngleBig = arcLengthPerGlassBig * CGFloat(counter) + startAngle
         
         let outlinePathBig = UIBezierPath(arcCenter: centerBig,
-                                          radius: bounds.width/2 - 7.5,
+                                          radius: bounds.width/2 - 14,
                                           startAngle: startAngle,
                                           endAngle: outlineEndAngleBig,
                                           clockwise: true)
         
         outlineColor.setStroke()
-        outlinePathBig.lineWidth = 45.0
+        outlinePathBig.lineWidth = 10
         outlinePathBig.stroke()
     }
 }

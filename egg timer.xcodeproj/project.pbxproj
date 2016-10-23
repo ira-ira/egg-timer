@@ -14,6 +14,7 @@
 		D3545D151DAA22D60000AAE7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3545D131DAA22D60000AAE7 /* LaunchScreen.storyboard */; };
 		D3545D1F1DAA26FB0000AAE7 /* RoundTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3545D1E1DAA26FB0000AAE7 /* RoundTimer.swift */; };
 		D3545D231DAA5BA00000AAE7 /* 04B_19__.TTF in Resources */ = {isa = PBXBuildFile; fileRef = D3545D221DAA54190000AAE7 /* 04B_19__.TTF */; };
+		D37DEEE71DB117E7000E61EB /* Angry-chicken.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D37DEEE61DB117E7000E61EB /* Angry-chicken.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		D3545D1D1DAA266B0000AAE7 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		D3545D1E1DAA26FB0000AAE7 /* RoundTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundTimer.swift; sourceTree = "<group>"; };
 		D3545D221DAA54190000AAE7 /* 04B_19__.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; name = 04B_19__.TTF; path = ../04B_19__.TTF; sourceTree = "<group>"; };
+		D37DEEE61DB117E7000E61EB /* Angry-chicken.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Angry-chicken.mp3"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +46,7 @@
 		D3545CFB1DAA22D60000AAE7 = {
 			isa = PBXGroup;
 			children = (
+				D37DEEE51DB117C4000E61EB /* sounds */,
 				D3545D061DAA22D60000AAE7 /* egg timer */,
 				D3545D051DAA22D60000AAE7 /* Products */,
 			);
@@ -70,6 +73,14 @@
 				D3545D1E1DAA26FB0000AAE7 /* RoundTimer.swift */,
 			);
 			path = "egg timer";
+			sourceTree = "<group>";
+		};
+		D37DEEE51DB117C4000E61EB /* sounds */ = {
+			isa = PBXGroup;
+			children = (
+				D37DEEE61DB117E7000E61EB /* Angry-chicken.mp3 */,
+			);
+			name = sounds;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -104,6 +115,7 @@
 				TargetAttributes = {
 					D3545D031DAA22D60000AAE7 = {
 						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = 35LC74S563;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -132,6 +144,7 @@
 			files = (
 				D3545D151DAA22D60000AAE7 /* LaunchScreen.storyboard in Resources */,
 				D3545D231DAA5BA00000AAE7 /* 04B_19__.TTF in Resources */,
+				D37DEEE71DB117E7000E61EB /* Angry-chicken.mp3 in Resources */,
 				D3545D121DAA22D60000AAE7 /* Assets.xcassets in Resources */,
 				D3545D0D1DAA22D60000AAE7 /* Main.storyboard in Resources */,
 			);
@@ -215,7 +228,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -260,7 +273,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -273,6 +286,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 35LC74S563;
 				INFOPLIST_FILE = "egg timer/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.gala.egg-timer";
@@ -286,6 +300,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 35LC74S563;
 				INFOPLIST_FILE = "egg timer/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.gala.egg-timer";

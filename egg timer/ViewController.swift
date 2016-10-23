@@ -7,8 +7,11 @@
 //
 
 import UIKit
+import UserNotifications
 
 class ViewController: UIViewController {
+    
+    var isGrantedNotificationAccess:Bool = false
     
     
     @IBAction func firstBtnPressed(_ sender: AnyObject) {
@@ -53,7 +56,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var middleButton: UIButton!
     @IBOutlet weak var lastButton: UIButton!
     let fisrtConst = 240
-    let secondConst = 360
+    let secondConst = 10
     let thirdConst = 450
     var timer = Timer()
     var selectedType = Array(repeating: false, count: 3)
@@ -68,9 +71,18 @@ class ViewController: UIViewController {
         timerLbl.font = UIFont(name: "04b_19", size: 32.0)
         let str = NSString(format:"%0.2d:%0.2d", thirdConst / 60,thirdConst%60)
         timerLbl.text = str as String
+        //registerForNotifications(types:  [.alert, .badge, .sound])
         
+        print("notif available \(isNotificationsAvailable())")
+       
+        if !isNotificationsAvailable()  {
+            registerForNotifications(types:  [.alert, .badge, .sound])
+        }
         
+
         
+        counterView.backgroundColor = UIColor(white: 0, alpha: 0.0)
+                
     }
     
     override func didReceiveMemoryWarning() {
@@ -91,8 +103,10 @@ class ViewController: UIViewController {
         }
     }
     @IBAction func startBtnPressed(_ sender: AnyObject) {
+        
         if(!isStarted){
-            counter = getCurrentTimer()
+            scheduleNotification(identifier: "egg-timer-1", title: "Яйца готовы!", subtitle: "lalal", body: "lala",timeInterval: TimeInterval(getCurrentTimer()))
+                        counter = getCurrentTimer()
             counterView.maxValue = getCurrentTimer()
             timer.invalidate()
             timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(ViewController.timerAction), userInfo:nil ,   repeats: true)
@@ -111,6 +125,7 @@ class ViewController: UIViewController {
             enableButtons()
             setHighlightingForButtons()
             self.startBtn.setImage(#imageLiteral(resourceName: "play"), for: UIControlState())
+            deleteNotification()
         }
     }
     
@@ -122,8 +137,12 @@ class ViewController: UIViewController {
     func timerAction(){
         counterView.counter+=1
         counter!-=1
+        if counter! < 0 {
+            timer.invalidate()
+        } else{
         let str = NSString(format:"%0.2d:%0.2d", counter! / 60,counter!%60)
         timerLbl.text = str as String
+        }
     }
     
     func disableButtons(){
@@ -165,5 +184,83 @@ class ViewController: UIViewController {
             return thirdConst
         }
     }
+    
+    
+    func deleteNotification() {
+        if #available(iOS 10, *) {
+            
+            UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+        } else {
+            
+            UIApplication.shared.cancelAllLocalNotifications()
+        }
+    }
+
+    
+    func scheduleNotification(identifier: String, title: String, subtitle: String, body: String, timeInterval: TimeInterval, repeats: Bool = false) {
+        if #available(iOS 10, *) {
+            let content = UNMutableNotificationContent()
+            content.title = title
+            content.body = body
+            content.sound = UNNotificationSound(named:"Angry-chicken.mp3")
+            
+            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: timeInterval, repeats: repeats)
+            let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
+            UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+        } else {
+            let notification = UILocalNotification()
+            notification.alertBody = "\(title)\n\(subtitle)\n\(body)"
+            notification.fireDate = Date(timeIntervalSinceNow: timeInterval)
+            notification.soundName = "Angry-chicken.mp3"
+            
+            UIApplication.shared.scheduleLocalNotification(notification)
+        }
+    }
+    
+    func isNotificationsAvailable() -> Bool{
+        if #available(iOS 10.0, *) {
+            UNUserNotificationCenter.current().getNotificationSettings(completionHandler: { (settings: UNNotificationSettings) in
+                return settings.authorizationStatus == .authorized
+                
+            })
+            return false
+        } else {
+            return UIApplication.shared.currentUserNotificationSettings?.types.contains(UIUserNotificationType.alert) ?? false
+        }
+    }
+    
+    func registerForNotifications(types: UIUserNotificationType) {
+        if #available(iOS 10.0, *) {
+            let options = types.authorizationOptions()
+            UNUserNotificationCenter.current().requestAuthorization(options: options) { (granted, error) in
+                if granted {
+                    self.isGrantedNotificationAccess = granted
+                }
+            }
+        } else {
+            let settings = UIUserNotificationSettings(types: types, categories: nil)
+            UIApplication.shared.registerUserNotificationSettings(settings)
+        }
+    }
+}
+
+// MARK: - <#Description#>
+extension UIUserNotificationType {
+    
+    @available(iOS 10.0, *)
+    func authorizationOptions() -> UNAuthorizationOptions {
+        var options: UNAuthorizationOptions = []
+        if contains(.alert) {
+            options.formUnion(.alert)
+        }
+        if contains(.sound) {
+            options.formUnion(.sound)
+        }
+        if contains(.badge) {
+            options.formUnion(.badge)
+        }
+        return options
+    }
+    
 }
 
