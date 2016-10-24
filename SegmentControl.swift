@@ -11,7 +11,6 @@ import UIKit
 
 
 @objc protocol SegmentControlDelegate {
-    @objc optional func segmentChanged(_ control: SegmentControl, value: Int)
     @objc optional func segmentChanged()
 }
 
@@ -71,8 +70,6 @@ class SegmentControl: UIView{
             }
             
             self.addSubview(newButton)
-            
-            
         }
     }
     
@@ -82,13 +79,7 @@ class SegmentControl: UIView{
             selectedIndex = value!
         }
         self.delegate?.segmentChanged!()
-        
-        
     }
-    
-    
-    
-    
 }
 
 extension UIView

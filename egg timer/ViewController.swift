@@ -6,8 +6,6 @@ import AVFoundation
 
 class ViewController: UIViewController, SegmentControlDelegate, modalAdviceDelegate{
     
-    var audioPlayer = AVAudioPlayer()
-    
     
     func notificationAlloweded() {
         registerForNotifications(types:  [.alert, .badge, .sound])
@@ -95,9 +93,9 @@ class ViewController: UIViewController, SegmentControlDelegate, modalAdviceDeleg
         selectedType[2] = true
         segmentCntrl.delegate = self
         timerLbl.font = UIFont(name: "04b_19", size: 32.0)
+        timerLbl.textColor = UIColor(hex: "#EF4822")
         let str = NSString(format:"%0.2d:%0.2d", thirdConst / 60,thirdConst%60)
         timerLbl.text = str as String
-        //registerForNotifications(types:  [.alert, .badge, .sound])
         
         print("notif available \(isNotificationsAvailable())")
         
@@ -105,13 +103,6 @@ class ViewController: UIViewController, SegmentControlDelegate, modalAdviceDeleg
         
         
         counterView.backgroundColor = UIColor(white: 0, alpha: 0.0)
-        do{
-            audioPlayer = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: "Angry-chicken", ofType: "mp3")!))
-            audioPlayer.prepareToPlay()
-        } catch{
-            print(error)
-        }
-        
         
         NotificationCenter.default.addObserver(self, selector: #selector(ViewController.applicationWillResignActive),name: NSNotification.Name.UIApplicationWillResignActive, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(ViewController.applicationDidBecomeActive),name: NSNotification.Name.UIApplicationDidBecomeActive, object: nil)
@@ -140,7 +131,7 @@ class ViewController: UIViewController, SegmentControlDelegate, modalAdviceDeleg
     func startBtnPressed() {
         
         if(!isStarted){
-            scheduleNotification(identifier: "egg-timer-1", title: "Яйца готовы!", subtitle: "", body: "",timeInterval: TimeInterval(getCurrentTimer()))
+            scheduleNotification(identifier: "egg-timer-1", title: "Таймер для яиц", subtitle: "", body: "Яйца готовы!",timeInterval: TimeInterval(getCurrentTimer()))
             counter = getCurrentTimer()
             counterView.maxValue = getCurrentTimer()
             timer.invalidate()
@@ -162,10 +153,8 @@ class ViewController: UIViewController, SegmentControlDelegate, modalAdviceDeleg
             setHighlightingForButtons()
             self.startBtn.setImage(#imageLiteral(resourceName: "play"), for: UIControlState())
             deleteNotification()
-            if audioPlayer.isPlaying {
-                audioPlayer.stop()
-            }
             segmentCntrl.enabled = true
+            AudioUtil.sharedInstance().stopSoundEffect()
         }
     }
     
@@ -184,7 +173,8 @@ class ViewController: UIViewController, SegmentControlDelegate, modalAdviceDeleg
         counter!-=1
         if counter! < 0 {
             timer.invalidate()
-            audioPlayer.play()
+           AudioUtil.sharedInstance().playSoundEffect("Angry-chicken.mp3")
+            timerLbl.text = "Готовы!"
         } else{
             let str = NSString(format:"%0.2d:%0.2d", counter! / 60,counter!%60)
             timerLbl.text = str as String
