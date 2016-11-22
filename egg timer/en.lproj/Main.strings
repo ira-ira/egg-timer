@@ -1,24 +1,24 @@
 
 /* Class = "UILabel"; text = "В мешочек"; ObjectID = "6KE-ee-lc8"; */
-"6KE-ee-lc8.text" = "В мешочек";
+"6KE-ee-lc8.text" = "In a pouch";
 
 /* Class = "UILabel"; text = "В крутую"; ObjectID = "6jY-vv-cEM"; */
-"6jY-vv-cEM.text" = "В крутую";
+"6jY-vv-cEM.text" = "Hard boiled";
 
 /* Class = "UIButton"; normalTitle = "Отмена"; ObjectID = "8sp-C6-SY0"; */
-"8sp-C6-SY0.normalTitle" = "Отмена";
+"8sp-C6-SY0.normalTitle" = "Cancel";
 
 /* Class = "UIButton"; normalTitle = "Вкрутую"; ObjectID = "AME-AB-jjf"; */
-"AME-AB-jjf.normalTitle" = "Вкрутую";
+"AME-AB-jjf.normalTitle" = "Hard boiled";
 
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "KIu-QI-ohC"; */
 "KIu-QI-ohC.normalTitle" = "Button";
 
 /* Class = "UIButton"; normalTitle = "Разрешить"; ObjectID = "Kqx-l9-eUV"; */
-"Kqx-l9-eUV.normalTitle" = "Разрешить";
+"Kqx-l9-eUV.normalTitle" = "Allow";
 
 /* Class = "UIButton"; normalTitle = "Вмешочек"; ObjectID = "SNn-md-UPW"; */
-"SNn-md-UPW.normalTitle" = "Вмешочек";
+"SNn-md-UPW.normalTitle" = "In a pouch";
 
 /* Class = "UILabel"; text = "Всмятку"; ObjectID = "hjw-M8-pDB"; */
-"hjw-M8-pDB.text" = "Всмятку";
+"hjw-M8-pDB.text" = "Soft-boiled";

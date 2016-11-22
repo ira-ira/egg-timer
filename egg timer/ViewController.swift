@@ -6,6 +6,8 @@ import AVFoundation
 
 class ViewController: UIViewController, SegmentControlDelegate, modalAdviceDelegate{
     
+    @IBOutlet weak var label: UILabel!
+    @IBOutlet weak var muteLabel: UILabel!
     
     func notificationAlloweded() {
         registerForNotifications(types:  [.alert, .badge, .sound])
@@ -24,9 +26,6 @@ class ViewController: UIViewController, SegmentControlDelegate, modalAdviceDeleg
     }
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-        isNotificationsAvailable2()
-        print(isNotificationsAvailable())
-        print("shouldPerformSegue")
         if identifier == "modalAdvice" && !isNotificationsAvailable()  && !isStarted {
             return true
         } else{
@@ -79,8 +78,8 @@ class ViewController: UIViewController, SegmentControlDelegate, modalAdviceDeleg
     @IBOutlet weak var middleButton: UIButton!
     @IBOutlet weak var lastButton: UIButton!
     var fisrtConst = 240
-    var secondConst = 10
-    var thirdConst = 450
+    var secondConst = 390
+    var thirdConst = 510
     var timer = Timer()
     var selectedType = Array(repeating: false, count: 3)
     var isStarted = false
@@ -92,20 +91,17 @@ class ViewController: UIViewController, SegmentControlDelegate, modalAdviceDeleg
         middleButton.isHighlighted = true
         selectedType[2] = true
         segmentCntrl.delegate = self
-        timerLbl.font = UIFont(name: "04b_19", size: 32.0)
+        timerLbl.font = UIFont(name: "AvenirNext-Regular", size: 32.0)
         timerLbl.textColor = UIColor(hex: "#EF4822")
-        let str = NSString(format:"%0.2d:%0.2d", thirdConst / 60,thirdConst%60)
+        let str = NSString(format:"%0.2d:%0.2d", getCurrentTimer() / 60,getCurrentTimer()%60)
         timerLbl.text = str as String
-        
-        print("notif available \(isNotificationsAvailable())")
-        
-        
-        
+        muteLabel.text = NSLocalizedString("mainPage.muteLabel", comment: "")
         
         counterView.backgroundColor = UIColor(white: 0, alpha: 0.0)
         
         NotificationCenter.default.addObserver(self, selector: #selector(ViewController.applicationWillResignActive),name: NSNotification.Name.UIApplicationWillResignActive, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(ViewController.applicationDidBecomeActive),name: NSNotification.Name.UIApplicationDidBecomeActive, object: nil)
+        print(label.font.fontName)
     }
     
     deinit {
@@ -131,7 +127,7 @@ class ViewController: UIViewController, SegmentControlDelegate, modalAdviceDeleg
     func startBtnPressed() {
         
         if(!isStarted){
-            scheduleNotification(identifier: "egg-timer-1", title: "Таймер для яиц", subtitle: "", body: "Яйца готовы!",timeInterval: TimeInterval(getCurrentTimer()))
+            scheduleNotification(identifier: "egg-timer-1", title: NSLocalizedString("notification.Title", comment: ""), subtitle: "", body: NSLocalizedString("notification.Body", comment: ""),timeInterval: TimeInterval(getCurrentTimer()))
             counter = getCurrentTimer()
             counterView.maxValue = getCurrentTimer()
             timer.invalidate()
@@ -141,8 +137,11 @@ class ViewController: UIViewController, SegmentControlDelegate, modalAdviceDeleg
             disableButtons()
             self.startBtn.setImage(#imageLiteral(resourceName: "stop"), for: UIControlState())
             segmentCntrl.enabled = false
-            
+            muteLabel.isHidden = false
+            muteLabel.alpha = 1.0
+            UIView.animate(withDuration: 2, delay: 3, options: UIViewAnimationOptions.transitionFlipFromTop, animations: {self.muteLabel.alpha = 0.0}, completion: { finished in self.muteLabel.isHidden = true})
         } else{
+            timerLbl.font = UIFont(name: timerLbl.font.fontName, size: 32)
             isStarted = false
             timer.invalidate()
             counterView.counter = 0
@@ -174,7 +173,8 @@ class ViewController: UIViewController, SegmentControlDelegate, modalAdviceDeleg
         if counter! < 0 {
             timer.invalidate()
            AudioUtil.sharedInstance().playSoundEffect("Angry-chicken.mp3")
-            timerLbl.text = "Готовы!"
+            timerLbl.font = UIFont(name: timerLbl.font.fontName, size: 24)
+            timerLbl.text = NSLocalizedString("mainPage.Ready", comment: "")
         } else{
             let str = NSString(format:"%0.2d:%0.2d", counter! / 60,counter!%60)
             timerLbl.text = str as String
@@ -214,7 +214,7 @@ class ViewController: UIViewController, SegmentControlDelegate, modalAdviceDeleg
     func getCurrentTimer()-> Int{
         var coldDelta = 0
         if segmentCntrl.selectedIndex == 0 {
-            coldDelta = 60
+            coldDelta = 30
         }
         if selectedType[0]{
             return fisrtConst + coldDelta
@@ -243,10 +243,18 @@ class ViewController: UIViewController, SegmentControlDelegate, modalAdviceDeleg
         let restoredTimeMeasurement = userDefault.object(forKey: PropertyKey.counterMeasurementKey) as! Double
         
         let timeDelta = Date().timeIntervalSince1970 - restoredTimeMeasurement
-        print(timeDelta)
+        if(timeDelta > 60*60){
+            startBtnPressed()
+            return
+        }
         
         counter! = restoredCounter - Int(timeDelta) + 1
-        counterView.counter = getCurrentTimer() - counter!
+        let delta = getCurrentTimer() - counter!
+        if(delta <= counterView.maxValue){
+            counterView.counter = delta
+        } else{
+            counterView.counter = counterView.maxValue
+        }
         timerAction()
         
     }
@@ -270,31 +278,12 @@ class ViewController: UIViewController, SegmentControlDelegate, modalAdviceDeleg
             notification.soundName = "Angry-chicken.mp3"
             
             UIApplication.shared.scheduleLocalNotification(notification)
-        }
+       }
     }
     
-    func isNotificationsAvailable2() {
-        if #available(iOS 10.0, *) {
-            UNUserNotificationCenter.current().getNotificationSettings(completionHandler: { (settings: UNNotificationSettings) in
-                print("auth status \(settings.authorizationStatus == .authorized)")
-                
-                
-            })
-            
-        }
-    }
     
     func isNotificationsAvailable() -> Bool{
-//        if #available(iOS 10.0, *) {
-//            var notif = UNUserNotificationCenter.current().get
-//            UNUserNotificationCenter.current().getNotificationSettings(completionHandler: { (settings: UNNotificationSettings) in
-//                return (settings.authorizationStatus == .authorized)
-//            })
-//        } else {
             return UIApplication.shared.currentUserNotificationSettings?.types.contains(UIUserNotificationType.alert) ?? false
- //       }
-        
-        return false
     }
     
     func registerForNotifications(types: UIUserNotificationType) {
@@ -336,17 +325,14 @@ class ViewController: UIViewController, SegmentControlDelegate, modalAdviceDeleg
     dynamic private func applicationWillResignActive() {
         if !timer.isValid {
             clearDefaults()
-            print("Clearning defaults")
         } else {
             saveDefaults()
-            print("Saving defaults")
         }
     }
     
     dynamic private func applicationDidBecomeActive() {
         if timer.isValid {
             loadDefaults()
-            print("Loading defaults")
         }
     }
     

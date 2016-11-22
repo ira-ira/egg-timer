@@ -16,7 +16,7 @@ import UIKit
 
 class SegmentControl: UIView{
     var delegate: SegmentControlDelegate?
-    var buttonTitles = ["Из холодильника","Комнатной температуры"]
+    var buttonTitles = [NSLocalizedString("mainPage.FromFridge", comment: ""),NSLocalizedString("mainPage.RoomTemp", comment: "")]
     var borderColor = UIColor(hex: "#52ABCE")
     var textColor = UIColor(hex: "#54504C")
     var font = UIFont(name: "Avenir Next", size: 12)
