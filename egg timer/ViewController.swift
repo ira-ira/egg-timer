@@ -4,7 +4,38 @@ import UIKit
 import UserNotifications
 import AVFoundation
 
-class ViewController: UIViewController, SegmentControlDelegate, modalAdviceDelegate{
+class ViewController: UIViewController, SegmentControlDelegate, modalAdviceDelegate, infoDelegate{
+    
+    var iMinSessions = 3
+    var iTryAgainSessions = 6
+    
+    func rateMe() {
+        let neverRate = UserDefaults.standard.bool(forKey: "neverRate")
+        var numLaunches = UserDefaults.standard.integer(forKey: "numLaunches") + 1
+        
+        if (!neverRate && (numLaunches == iMinSessions || numLaunches >= (iMinSessions + iTryAgainSessions + 1)))
+        {
+            showRateMe()
+            numLaunches = iMinSessions + 1
+        }
+        UserDefaults.standard.set(numLaunches, forKey: "numLaunches")
+    }
+    
+    func showRateMe() {
+        let alert = UIAlertController(title: NSLocalizedString("rate.Info.title", comment: ""), message: NSLocalizedString("rate.Info.message", comment: ""), preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: NSLocalizedString("rate.OK", comment: ""), style: UIAlertActionStyle.default, handler: { alertAction in
+            UIApplication.shared.openURL(NSURL(string : "itms-apps://itunes.apple.com/app/id1178891322") as! URL)
+            alert.dismiss(animated: true, completion: nil)
+        }))
+        alert.addAction(UIAlertAction(title: NSLocalizedString("rate.no", comment: ""), style: UIAlertActionStyle.default, handler: { alertAction in
+            UserDefaults.standard.set(true, forKey: "neverRate")
+            alert.dismiss(animated: true, completion: nil)
+        }))
+        alert.addAction(UIAlertAction(title: NSLocalizedString("rate.maybe", comment: ""), style: UIAlertActionStyle.default, handler: { alertAction in
+            alert.dismiss(animated: true, completion: nil)
+        }))
+        self.present(alert, animated: true, completion: nil)
+    }
     
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var muteLabel: UILabel!
@@ -19,13 +50,24 @@ class ViewController: UIViewController, SegmentControlDelegate, modalAdviceDeleg
         startBtnPressed()
         
     }
+    func firstLaunch(){
+        UserDefaults.standard.set(true, forKey: "Walkthrough")
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let destination = segue.destination as! modalAdvice
-        destination.delegate = self
+        if let destination = segue.destination as? InfoView{
+            destination.delegate = self
+        }
+        if let destination = segue.destination as? modalAdvice{
+            destination.delegate = self
+        }
+        
     }
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        if identifier == "info"{
+            return true
+        }
         if identifier == "modalAdvice" && !isNotificationsAvailable()  && !isStarted {
             return true
         } else{
@@ -86,7 +128,7 @@ class ViewController: UIViewController, SegmentControlDelegate, modalAdviceDeleg
     var counter: Int?
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(thirdConst)
+       
         firstButton.isHighlighted = true
         middleButton.isHighlighted = true
         selectedType[2] = true
@@ -101,7 +143,13 @@ class ViewController: UIViewController, SegmentControlDelegate, modalAdviceDeleg
         
         NotificationCenter.default.addObserver(self, selector: #selector(ViewController.applicationWillResignActive),name: NSNotification.Name.UIApplicationWillResignActive, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(ViewController.applicationDidBecomeActive),name: NSNotification.Name.UIApplicationDidBecomeActive, object: nil)
-        print(label.font.fontName)
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if !UserDefaults.standard.bool(forKey: "Walkthrough") {
+            performSegue(withIdentifier: "info", sender: self)
+        }
     }
     
     deinit {
@@ -154,6 +202,7 @@ class ViewController: UIViewController, SegmentControlDelegate, modalAdviceDeleg
             deleteNotification()
             segmentCntrl.enabled = true
             AudioUtil.sharedInstance().stopSoundEffect()
+            rateMe()
         }
     }
     

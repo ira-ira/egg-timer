@@ -1,0 +1,20 @@
+/* 
+  Localizable.strings
+  egg timer
+
+  Created by infuntis on 16.11.16.
+  Copyright © 2016 gala. All rights reserved.
+*/
+mainPage.FromFridge = "From fridge";
+mainPage.RoomTemp = "Room temperature";
+mainPage.Ready = "Ready";
+modalWindow.NotificationAdvice = "In order for this app to work, this app needs permission to send you Eggs Ready notification. Please allow this in the next popup.";
+notification.Body = "Eggs are ready";
+notification.Title = "Egg's timer";
+mainPage.muteLabel = "Timer is started. Please check that your phone is not muted.";
+infoWindow.IndoLabel = "Put eggs in boilling water and start the timer.";
+rate.Info.title = "Do you like this app?";
+rate.Info.message = "Rate us in AppStore";
+rate.OK = "Rate";
+rate.maybe = "Maybe later";
+rate.no = "No Thanks";
