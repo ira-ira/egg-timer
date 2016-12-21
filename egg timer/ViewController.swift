@@ -163,6 +163,8 @@ class ViewController: UIViewController, SegmentControlDelegate, modalAdviceDeleg
     
     @IBAction func restartBtnPressed(_ sender: AnyObject) {
         if isStarted{
+            deleteNotification()
+            scheduleNotification(identifier: "egg-timer-1", title: NSLocalizedString("notification.Title", comment: ""), subtitle: "", body: NSLocalizedString("notification.Body", comment: ""),timeInterval: TimeInterval(getCurrentTimer()))
             counterView.counter = 0
             counterView.maxValue = getCurrentTimer()
             counter = getCurrentTimer()
@@ -292,6 +294,7 @@ class ViewController: UIViewController, SegmentControlDelegate, modalAdviceDeleg
         let restoredTimeMeasurement = userDefault.object(forKey: PropertyKey.counterMeasurementKey) as! Double
         
         let timeDelta = Date().timeIntervalSince1970 - restoredTimeMeasurement
+        print(timeDelta)
         if(timeDelta > 60*60){
             startBtnPressed()
             return
